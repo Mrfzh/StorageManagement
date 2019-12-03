@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <Button
+        android:id="@+id/btn_main_generate_free_zone"
+        android:layout_width="0dp"
+        android:layout_height="45dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/btn_main_recycle_zone"
+        android:text="随机生成空闲分区"
+        android:textSize="14sp"/>
+
+    <Button
+        android:id="@+id/btn_main_recycle_zone"
+        android:layout_width="0dp"
+        android:layout_height="45dp"
+        app:layout_constraintStart_toEndOf="@id/btn_main_generate_free_zone"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:text="回收所有资源"
+        android:textSize="14sp"/>
+
+    <!-- 空闲分区 -->
+
+    <TextView
+        android:id="@+id/tv_main_free_zone_text"
+        android:layout_width="0dp"
+        android:layout_height="45dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btn_main_generate_free_zone"
+        android:text="空闲分区"
+        android:textColor="#666666"
+        android:textSize="20sp"
+        android:gravity="start|center"
+        android:background="#e1e1e1"
+        android:paddingStart="30dp"
+        android:paddingEnd="30dp"/>
+
+    <TextView
+        android:id="@+id/tv_main_zone_id_text"
+        android:layout_width="0dp"
+        android:layout_height="30dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_main_free_zone_text"
+        app:layout_constraintEnd_toStartOf="@id/tv_main_zone_size_text"
+        android:text="分区号"
+        android:textColor="#222222"
+        android:gravity="center"/>
+
+    <TextView
+        android:id="@+id/tv_main_zone_size_text"
+        android:layout_width="0dp"
+        android:layout_height="30dp"
+        app:layout_constraintStart_toEndOf="@id/tv_main_zone_id_text"
+        app:layout_constraintTop_toBottomOf="@id/tv_main_free_zone_text"
+        app:layout_constraintEnd_toStartOf="@id/tv_main_zone_initial_address_text"
+        android:text="分区大小"
+        android:textColor="#222222"
+        android:gravity="center"/>
+
+    <TextView
+        android:id="@+id/tv_main_zone_initial_address_text"
+        android:layout_width="0dp"
+        android:layout_height="30dp"
+        app:layout_constraintStart_toEndOf="@id/tv_main_zone_size_text"
+        app:layout_constraintTop_toBottomOf="@id/tv_main_free_zone_text"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:text="分区始址"
+        android:textColor="#222222"
+        android:gravity="center"/>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/rv_main_free_zone"
+        android:layout_width="0dp"
+        android:layout_height="180dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_main_zone_id_text"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <!-- 选择算法 -->
+
+    <View
+        android:layout_width="0dp"
+        android:layout_height="45dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/rv_main_free_zone"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:background="#f1f1f1"/>
+
+    <TextView
+        android:id="@+id/tv_main_choose_method_text"
+        android:layout_width="wrap_content"
+        android:layout_height="45dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/rv_main_free_zone"
+        android:text="选择分配算法："
+        android:textColor="#222222"
+        android:textSize="14sp"
+        android:gravity="center"
+        android:layout_marginStart="30dp"/>
+
+    <Spinner
+        android:id="@+id/sp_main_method"
+        android:layout_width="wrap_content"
+        android:layout_height="45dp"
+        app:layout_constraintStart_toEndOf="@id/tv_main_choose_method_text"
+        app:layout_constraintTop_toBottomOf="@id/rv_main_free_zone"
+        android:entries="@array/method"/>
+
+    <!-- 添加作业 -->
+
+    <TextView
+        android:id="@+id/tv_main_task_size_text"
+        android:layout_width="wrap_content"
+        android:layout_height="45dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_main_choose_method_text"
+        android:layout_marginStart="30dp"
+        android:text="作业大小："
+        android:textSize="14sp"
+        android:textColor="#222222"
+        android:gravity="center"/>
+
+    <EditText
+        android:id="@+id/et_main_task_size"
+        android:layout_width="60dp"
+        android:layout_height="45dp"
+        app:layout_constraintStart_toEndOf="@id/tv_main_task_size_text"
+        app:layout_constraintTop_toBottomOf="@id/tv_main_choose_method_text"
+        android:maxLength="2"
+        android:inputType="number"/>
+
+    <Button
+        android:id="@+id/btn_main_add_task"
+        android:layout_width="0dp"
+        android:layout_height="45dp"
+        app:layout_constraintStart_toEndOf="@id/et_main_task_size"
+        app:layout_constraintTop_toBottomOf="@id/tv_main_choose_method_text"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginEnd="30dp"
+        android:text="添加作业" />
+
+    <!-- 作业分配情况 -->
+
+    <TextView
+        android:id="@+id/tv_main_task_distribution_text"
+        android:layout_width="0dp"
+        android:layout_height="45dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_main_task_size_text"
+        android:text="作业分配情况"
+        android:textColor="#666666"
+        android:textSize="20sp"
+        android:gravity="start|center"
+        android:background="#e1e1e1"
+        android:paddingStart="30dp"
+        android:paddingEnd="30dp"/>
+
+    <TextView
+        android:id="@+id/tv_main_task_distribution_task_id_text"
+        android:layout_width="0dp"
+        android:layout_height="30dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_main_task_distribution_text"
+        app:layout_constraintEnd_toStartOf="@id/tv_main_task_distribution_task_size_text"
+        android:text="作业号"
+        android:textColor="#222222"
+        android:gravity="center"/>
+
+    <TextView
+        android:id="@+id/tv_main_task_distribution_task_size_text"
+        android:layout_width="0dp"
+        android:layout_height="30dp"
+        app:layout_constraintStart_toEndOf="@id/tv_main_task_distribution_task_id_text"
+        app:layout_constraintTop_toBottomOf="@id/tv_main_task_distribution_text"
+        app:layout_constraintEnd_toStartOf="@id/tv_main_task_distribution_zone_text"
+        android:text="作业大小"
+        android:textColor="#222222"
+        android:gravity="center"/>
+
+    <TextView
+        android:id="@+id/tv_main_task_distribution_zone_text"
+        android:layout_width="0dp"
+        android:layout_height="30dp"
+        app:layout_constraintStart_toEndOf="@id/tv_main_task_distribution_task_size_text"
+        app:layout_constraintTop_toBottomOf="@id/tv_main_task_distribution_text"
+        app:layout_constraintEnd_toStartOf="@id/tv_main_task_distribution_state_text"
+        android:text="对应分区号"
+        android:textColor="#222222"
+        android:gravity="center"/>
+
+    <TextView
+        android:id="@+id/tv_main_task_distribution_state_text"
+        android:layout_width="0dp"
+        android:layout_height="30dp"
+        app:layout_constraintStart_toEndOf="@id/tv_main_task_distribution_zone_text"
+        app:layout_constraintTop_toBottomOf="@id/tv_main_task_distribution_text"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:text="状态"
+        android:textColor="#222222"
+        android:gravity="center"/>
+
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/rv_main_task_distribution"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_main_task_distribution_task_id_text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
+
+</android.support.constraint.ConstraintLayout>

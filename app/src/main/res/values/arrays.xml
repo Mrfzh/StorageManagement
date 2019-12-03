@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="method">
+        <item>首次适应算法</item>
+        <item>循环首次适应算法</item>
+        <item>最佳适应算法</item>
+        <item>最差适应算法</item>
+    </string-array>
+</resources>
