@@ -190,8 +190,19 @@
         android:layout_height="30dp"
         app:layout_constraintStart_toEndOf="@id/tv_main_task_distribution_task_size_text"
         app:layout_constraintTop_toBottomOf="@id/tv_main_task_distribution_text"
-        app:layout_constraintEnd_toStartOf="@id/tv_main_task_distribution_state_text"
+        app:layout_constraintEnd_toStartOf="@id/tv_main_task_distribution_initial_address_text"
         android:text="对应分区号"
+        android:textColor="#222222"
+        android:gravity="center"/>
+
+    <TextView
+        android:id="@+id/tv_main_task_distribution_initial_address_text"
+        android:layout_width="0dp"
+        android:layout_height="30dp"
+        app:layout_constraintStart_toEndOf="@id/tv_main_task_distribution_zone_text"
+        app:layout_constraintTop_toBottomOf="@id/tv_main_task_distribution_text"
+        app:layout_constraintEnd_toStartOf="@id/tv_main_task_distribution_state_text"
+        android:text="初始地址"
         android:textColor="#222222"
         android:gravity="center"/>
 
@@ -199,7 +210,7 @@
         android:id="@+id/tv_main_task_distribution_state_text"
         android:layout_width="0dp"
         android:layout_height="30dp"
-        app:layout_constraintStart_toEndOf="@id/tv_main_task_distribution_zone_text"
+        app:layout_constraintStart_toEndOf="@id/tv_main_task_distribution_initial_address_text"
         app:layout_constraintTop_toBottomOf="@id/tv_main_task_distribution_text"
         app:layout_constraintEnd_toEndOf="parent"
         android:text="状态"
